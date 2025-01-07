@@ -1,0 +1,52 @@
+[project]
+name = "random-emoji"
+version = "1.1"
+description = "Generate a random emoji and copy it to the clipboard."
+authors = [
+    { name = "Michael Tesar", email = "michael.tesar@bearingpoint.com" }
+]
+license = { text = "MIT License" }
+requires-python = ">=3.9"
+dependencies = [
+    "pyperclip>=1.9.0",
+    "requests>=2.27.1",
+]
+
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+random-emoji = "random_emoji:main"
+
+[tool.ruff]
+line-length = 88
+lint.select = ["E", "F", "W", "I", "T"]
+lint.ignore = ["N801", "N802", "N803", "N804", "N805", "N806", "N807", "N811", "N813", "N815"]
+exclude = [
+    "tests/*",
+    "docs/*",
+    "build/*",
+    "dist/*",
+    "*.pyc",
+    "*.pyo",
+    "*.pyd",
+    "__pycache__/",
+    ".venv/",
+    ".git/",
+    ".tox/",
+    ".nox/",
+    ".coverage",
+    "coverage.xml",
+    "nosetests.xml",
+    "*.cover",
+    ".hypothesis/",
+    ".pytest_cache/",
+    "migrations/*",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.8.6",
+    "uv>=0.5.15",
+]
